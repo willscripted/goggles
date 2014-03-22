@@ -1,0 +1,22 @@
+{
+  "name": "goggles",
+  "version": "0.1.0",
+  "homepage": "https://github.com/will-ob/goggles",
+  "authors": [
+    "Will O'Brien <will.obrien@dibit.co>"
+  ],
+  "description": "Access google apis with less suck",
+  "main": "index.js",
+  "keywords": [
+    "google",
+    "api"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

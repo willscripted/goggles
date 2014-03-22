@@ -1,0 +1,31 @@
+{
+  "name": "goggles",
+  "version": "0.1.0",
+  "description": "Access google apis with less suck",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:will-ob/goggles.git"
+  },
+  "keywords": [
+    "google",
+    "api"
+  ],
+  "author": "Will O'Brien <will.obrien@dibit.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/will-ob/goggles/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.7.1",
+    "mocha": "~1.18.2",
+    "sinon-chai": "~2.5.0",
+    "chai": "~1.9.1",
+    "sinon": "~1.9.0",
+    "browserify": "~3.33.0"
+  }
+}
