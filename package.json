@@ -4,7 +4,7 @@
   "description": "Access google apis with less suck",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/src/"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "sinon-chai": "~2.5.0",
     "chai": "~1.9.1",
     "sinon": "~1.9.0",
-    "browserify": "~3.33.0"
+    "browserify": "~3.33.0",
+    "jsdom": "~0.10.3"
   }
 }

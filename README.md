@@ -1,7 +1,7 @@
 Goggles
 ===================
 
-Simpler google api
+9 out of 10 optometrists agree, looking directly at the [init code](https://code.google.com/p/google-api-javascript-client/source/browse/samples/authSample.html) of [google's client api](https://code.google.com/p/google-api-javascript-client/) may result in irreversable damage.
 
 Load api as promise. Only use client requests.
 
@@ -16,6 +16,7 @@ Usage
 -----------
 
 Include this on your page
+
 ```html
 <script src="path/to/bower/googles-api"></script>
 <script type="text/javascript">
@@ -23,98 +24,52 @@ Include this on your page
   var gap = new Goggles({
     apiKey:   "SOME_API_KEY",
     clientId: "SOME_CLKENT_KEY"
-    scopes: [
+    scope: [
       'https://www.googleapis.com/auth/calendar.readonly'
     ]
   }); // => promise
 
   // Attach login to button if not automatically logged in
-  $("button .google").click(api.login)
+  $("button .google").click(gap.login)
 </script>
 ```
 
-Then you can access an authenticated google api using the promise.
+The `apiKey` allows your app to access public data.   
+The `clientId` is the id that the user is authorizing to access their public data.   
+The `scope` is a set of permissions that the user is granting to the `clientId`.   
+
+
 ```javascript
 // google api promise (gap)
 // returns the `gapi`
 gap.then(function(gapi){
 
   gapi.client.request({
-    // stuff
+    // request params
   }).execute(function(){});
 
 });
 ```
 
 
-Mixin
+API
 ------------
 
-Add a `request` method to your `prototype`
+### Methods
 
-### JavaScript
+`then(fn)`
 
-```javascipt
-function Thing() {}
-_.extend(Thing.prototype, Goggles.mixin)
+Where fn is a function of signature `function (googleApi)`
 
-```
+`login()`
 
-### CoffeeScript
+Method to prompt the user to allow oauth access.
 
-```coffeescript
-class Calendar
+**Note** - This must be done syncronously on a button click to prevent the popup from being blocked
 
-  _.extend(this, Googles.mixin)
+`wasImmediatelyAuthorizable()`
 
-```
-
-### Why
-
-This will add a `request` method to your function's `prototype`.
-
-Cleanly separates request object creation from execution.
-
-```coffeescript
-
-class Calendar
-  _.extend(this, Goggles.mixin)
-
-  events: (id, params = {}) ->
-    {
-      path: "cal/#{id}/events"
-      method: "GET"
-      params: _.defaults(params, {
-        singleEvents: true
-      })
-    }
-
-  getEvents: (opts) ->
-    @request(@events("primary", opts))
-
-cal = new Calendar();
-events = cal.getEvents() # => promise for events
-
-events.then((events) ->
-  console.log(events) # => logs the result of your request
-)
-
-```
-
-Allows you to keep tests independent of google's api
-
-```
-cal = new Calendar()
-
-# Normalc api
-cal.getEvents({things: "stuff"}) # => Q([list, of, tasks]
-
-# Stub api
-stub = sinon.stub(cal, "request")
-         .returns(Q([some, stub, events]))
-
-cal.getEvents({things: "stuff"}) # => Q([some, stub, events])
-```
+Whether the user's token could be retreived withou user input.
 
 Contributing
 ---------------
