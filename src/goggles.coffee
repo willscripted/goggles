@@ -27,7 +27,6 @@ do (window, document) ->
       @gapi = window.gapi
       @gapi.client.setApiKey(@apiKey)
       @gapi.auth.authorize({client_id: @clientId, scope: @scopes, immediate: true}, @handleAuthResult)
-      console.log("gapi loaded")
 
     appendGapiScript: ->
       tag = document.createElement('script')
@@ -38,17 +37,15 @@ do (window, document) ->
       sib = document.getElementsByTagName('script')[0]
       sib.parentNode.insertBefore(tag, sib)
 
-    authSuccess: () ->
-      @def.resolve(@gapi)
-
     login: =>
       @gapi.auth.authorize({client_id: @clientId, scope: @scopes, immediate: false}, @handleAuthResult)
 
     handleAuthResult: (authResult) =>
-      if authResult and not authResult.error
-        @authSuccess()
-      else
-        console.warn "unsuccessful auth", authResult
+      if authResult
+        if authResult.error
+          @def.reject(authResult)
+        else
+          @def.resolve(@gapi)
 
   window.Goggles = Goggles
 
