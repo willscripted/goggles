@@ -39,9 +39,9 @@ The `scope` is a set of permissions that the user is granting to the `clientId`.
 
 
 ```javascript
-// google api promise (gap)
+// google api promise (goggles)
 // returns the `gapi`
-gap.then(function(gapi){
+goggles.then(function(gapi){
 
   gapi.client.request({
     // request params
