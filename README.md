@@ -1,3 +1,8 @@
+<p align="center">
+  <img width="320px" height="320px" src="https://raw.github.com/will-ob/git-publish/master/goggles.png" />
+</p>
+<p align="center">Image by <a href="https://www.flickr.com/photos/neilt/10116951183/">Neil Turner</a></p>
+
 Goggles
 ===================
 
@@ -11,6 +16,8 @@ Install
 ```
 bower install --save goggles
 ```
+
+
 
 Usage
 -----------
@@ -77,3 +84,6 @@ License
 The MIT License (MIT)
 
 Copyright (c) 2014 Will O'Brien
+
+
+
