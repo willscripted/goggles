@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="320px" height="320px" src="https://raw.github.com/will-ob/git-publish/master/goggles.png" />
+  <img width="320px" height="320px" src="https://raw.githubusercontent.com/will-ob/goggles/master/goggles.png" />
 </p>
 <p align="center">Image by <a href="https://www.flickr.com/photos/neilt/10116951183/">Neil Turner</a></p>
 
